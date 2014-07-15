@@ -16,7 +16,7 @@ python hs_sarjis.py Fingerpori http://www.hs.fi/fingerpori/
 # Output is json formated result
 ```
 
-# Example of result
+### Example of result
 ```
 {"url": "http://hs13.snstatic.fi/webkuva/sarjis/560/1305847479322?ts=102", "name": "figerpori"}
 ```
