@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Fingerpori</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="jumbotron-narrow.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+  </head>
+
+  <body ng-controller="mainController">
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="https://github.com/siimeon/hs-sarjis">Github Project</a></li>
+        </ul>
+        <h3 class="text-muted">{{data.name}}</h3>
+      </div>
+
+      <div class="jumbotron">
+        <img src="{{data.url}}">
+      </div>
+
+      <div class="footer">
+        <p>Siimeon @ <a href="http://www.github.com/siimeon">Github</a> 2014</p>
+      </div>
+
+    </div> <!-- /container -->
+
+
+    <script type="text/javascript">
+        // create the module and name it scotchApp
+      var scotchApp = angular.module('myApp', []);
+
+      // create the controller and inject Angular's $scope
+      scotchApp.controller('mainController', function($scope, $http) {
+        $http.get('data.json')
+         .then(function(res){
+            $scope.data = res.data;
+            console.log(res.data);
+        });
+      });
+
+    </script>
+  </body>
+</html>
