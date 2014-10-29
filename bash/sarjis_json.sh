@@ -5,4 +5,4 @@
 # $2 - Url to comic
 
 url=`./hs_sarjis.sh $2`
-echo {\"$1\": \"Fingerpori\",  \"url\": \"$url\"}
+echo {\"name\": \"$1\",  \"url\": \"$url\"}
