@@ -9,7 +9,6 @@ Supported comics
 
 - www.hs.fi/fingerpori/ for Fingerpori
 - http://www.hs.fi/viivijawagner/ for Viivi ja Wagner
-- http://www.iltasanomat.fi/suomiklassikko/ for Suomiklassikko
 - http://www.taloussanomat.fi/ for Dilbert
 
 ### How to run

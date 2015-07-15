@@ -4,6 +4,12 @@ import argparse
 
 HS_SEARCH_TERM = 'webkuva/sarjis'
 IS_SEARCH_TERM = 'img/1920'
+IL_SEARCH_TERM = '/sarjakuvat/'
+# TODO Refactor class to be more general
+# TODO Split class and CLI controller to separated file
+# TODO Rename class implementation
+# TODO Document class
+# TODO add support for other than <img src=""> data
 
 
 class HSComicParser(object):
@@ -27,14 +33,14 @@ class HSComicParser(object):
     @staticmethod
     def search_data(data, search_term):
         for line in data.split('\n'):
-            if search_term in line:
+            if search_term in line and "<img" in line:
                 return line.strip()
 
         return None
 
     @staticmethod
     def parse_img_tag(tag):
-        parsed_tag = tag.replace('<', '').replace('/>', '').replace('>', '')
+        parsed_tag = tag.replace('<', ' ').replace('/>', ' ').replace('>', ' ')
         tag_parts = parsed_tag.split(' ')
         for part in tag_parts:
             if 'src' in part:
