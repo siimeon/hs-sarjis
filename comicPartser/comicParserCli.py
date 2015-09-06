@@ -1,5 +1,6 @@
 from htmlParser import HtmlAttributeParser
 import argparse
+import json
 
 
 def parse_cli_arguments():
@@ -18,15 +19,24 @@ def parse_cli_arguments():
                         "--name",
                         default="",
                         help="Name of comic")
+    parser.add_argument("--tag",
+                        default="img",
+                        help="Tag to be searched")
+    parser.add_argument("--attribute",
+                        default="src",
+                        help="Attribute to be searched")
     return parser.parse_args()
 
 
 def main():
     arguments = parse_cli_arguments()
-    source_parser = HtmlAttributeParser(url=arguments.source, search_term=arguments.term)
+    source_parser = HtmlAttributeParser(url=arguments.source,
+                                        search_term=arguments.term,
+                                        tag=arguments.tag,
+                                        attribute=arguments.attribute)
     comic_url = source_parser.search()
     return_json = {"name": arguments.name, "url": comic_url}
-    print(return_json)
+    print(json.dumps(return_json))
 
 if __name__ == "__main__":
     main()
